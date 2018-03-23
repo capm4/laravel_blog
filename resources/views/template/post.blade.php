@@ -1,0 +1,13 @@
+@extends('layouts.site')
+@section('header')
+    @include('template.header')
+@endsection
+@section('sidebar')
+    @include('template.sidebar')
+@endsection
+@section('content')
+    @include('template.post_content')
+@endsection
+@section('footer')
+    @include('template.footer')
+@endsection

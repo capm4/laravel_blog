@@ -1,0 +1,10 @@
+@extends('layouts.site')
+@section('header')
+    @include('template.header')
+@endsection
+@section('content')
+    @include('template.profile_content')
+@endsection
+@section('footer')
+    @include('template.footer')
+@endsection
