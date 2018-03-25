@@ -18,7 +18,7 @@
             {!! Form::hidden('commentId', $comment->id) !!}
             {!! Form::textarea('text', null,['id'=>'editor','class'=>'form-control','placeholder'=>"Input Text",'size' => '30x3']) !!}
         </div>
-        <button class="btn btn-primary" id="createCommitToCommit" onclick="close{{$comment->id}}()">
+        <button class="btn btn-primary createCommitToCommit" onclick="close{{$comment->id}}()">
             @lang('messages.comment_title')
         </button>
         {!! Form::close() !!}

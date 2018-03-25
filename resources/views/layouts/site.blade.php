@@ -18,6 +18,7 @@
     <link href="{{asset('css/blog-post.css')}}" rel="stylesheet">
     <link href="{{asset('css/st.css')}}" rel="stylesheet">
     <link href="{{asset('css/languages.min.css')}}" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>

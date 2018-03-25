@@ -83,32 +83,6 @@
   </div>
 @endif
 @if(Auth::user())
-<script>
-  $(document).ready(function () {
-      function func() {
-          var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-          $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-          });
-              $.ajax({
-                  /* the route pointing to the post function */
-                  url: '/ajax/updateUserLastVisit',
-                  type: 'POST',
-                  /* send the csrf-token and the input to the controller */
-                  data: {_token: CSRF_TOKEN, do: 'updateUserLastVisit'},
-                  dataType: 'JSON',
-                  /* remind that 'data' is the response of the AjaxController */
-                  success: function (data) {
-                  },
-                  errors: function (error) {
-                      console.log(error);
-                  }
-              });
-      }
-      setInterval(func, 600000);
-  })
-</script>
+
 @endif
 
