@@ -6,6 +6,7 @@
      'method'=>'POST',
      'enctype'=>'multipart/form-data'
     ]) !!}
+     @csrf
     <div class="form-group">
         {!! Form::hidden('userId', Auth::user()->id) !!}
         {!! Form::hidden('commentId', $comment->id) !!}

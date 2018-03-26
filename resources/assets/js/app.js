@@ -28,7 +28,6 @@ window.Popper = require('popper.js').default; // FIX
 
 //Comment
 
-console.log('here');
 $(document).on('click', '#ajax-leave-comment', function (event) {
     event.preventDefault();
     var url,

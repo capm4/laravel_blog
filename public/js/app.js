@@ -13632,7 +13632,6 @@ window.Popper = __webpack_require__(1).default; // FIX
 
 //Comment
 
-console.log('here');
 $(document).on('click', '#ajax-leave-comment', function (event) {
     event.preventDefault();
     var url,

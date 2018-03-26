@@ -108,6 +108,35 @@ $(document).ready(function () {
         }
     });
 
+    $("#CommitToPost").on('click', '*[data-comment-id]', function (event) {
+        event.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var commentID = $(event.target).data('comment-id');
+        if ($('*[data-form_commit_id]').data('form_commit_id') == commentID) {
+            $("#form_create_commit_id_" + commentID).html('');
+        } else {
+            var url = '/comment/form-create';
+            var method = 'POST';
+            var data = { 'commentId': commentID };
+            console.log(data);
+            $.ajax({
+                url: url,
+                type: method,
+                data: data,
+                success: function success(data) {
+                    $("#form_create_commit_id_" + commentID).append(data);
+                },
+                error: function error(err) {
+                    console.log(err);
+                }
+            });
+        }
+    });
+
     // Create comment to post
     $("#createCommitToPost").click(function (event) {
         $this = $(this);
