@@ -93,6 +93,7 @@ $(document).ready(function () {
             var url = '/comment/form-create';
             var method = 'POST';
             var data = { 'commentId': commentID };
+            console.log(data);
             $.ajax({
                 url: url,
                 type: method,
@@ -106,66 +107,6 @@ $(document).ready(function () {
             });
         }
     });
-
-    //
-    // Create and destroy form for create comment to comment
-    $('*[data-id]').on('click', '*[data-comment-id]', function (event) {
-        event.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        var commentID = $(event.target).data('comment-id');
-        if ($('*[data-form_commit_id]').data('form_commit_id') == commentID) {
-            $("#form_create_commit_id_" + commentID).html('');
-        } else {
-            var url = '/comment/form-create';
-            var method = 'POST';
-            var data = { 'commentId': commentID };
-            $.ajax({
-                url: url,
-                type: method,
-                data: data,
-                success: function success(data) {
-                    $("#form_create_commit_id_" + commentID).append(data);
-                },
-                error: function error(err) {
-                    console.log(err);
-                }
-            });
-        }
-    });
-
-    // Create comment to comment
-    // $('*[data-form_create_commit_id]').on('click', '.createCommitToCommit', function(event) {
-    //     $this = $(this);
-    //     event.preventDefault();
-    //     $.ajaxSetup({
-    //         headers: {
-    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //         }
-    //     });
-    //     var url = $this.parent('form').attr('action');
-    //     var method = $this.parent('form').attr('method');
-    //     var data = $this.parent('form').serialize();
-    //     var commitId = $this.parent('form').find("input[name=commentId]").val();
-    //     $.ajax({
-    //         url:url,
-    //         type:method,
-    //         data: data,
-    //         success: function (data) {
-    //             console.log(commitId);
-    //             $('#CommitToCommit-'+commitId).append(data);
-    //             $this.parent('form').find("textarea[name=text]").val('');
-    //             $("#form_create_commit_id_"+commitId).html('');
-    //         },
-    //         error: function (err) {
-    //             console.log(err)
-    //         }
-    //     });
-    // });
-
 
     // Create comment to post
     $("#createCommitToPost").click(function (event) {

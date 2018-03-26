@@ -54,11 +54,14 @@
                     </div>
                     @if(Auth::user())
                         @include('comment.comment_create')
-                        <div id="CommitToCommit-{{$comment->id}}" data-id={{$comment->id}}>
+                        <div class="card-body" style="margin-left: 25px ">
+                            @include('comment.comment_to_comment')
+                            <div id="CommitToCommit-{{$comment->id}}" data-id={{$comment->id}}>
+                            </div>
                         </div>
                     @endif
                 </div>
-                @include('comment.comment_to_comment')
+
             @endforeach
         @endif
     {{--@endif--}}

@@ -46,8 +46,7 @@ class CommentController extends Controller
                 $input = $request->except('_token');
                 $userId = Auth::user()->id;
                 $commentId = $input['commentId'];
-                $comment = CommentORM::createCommentToComment($request, $userId, $commentId);
-
+                CommentORM::createCommentToComment($request, $userId, $commentId);
                 return redirect()->back();
             } else {
                 return redirect()->back();
@@ -56,6 +55,8 @@ class CommentController extends Controller
             return redirect()->back()->with('status', Lang::get('messages.commit_login'));
         }
     }
+
+
     public function deleteExecute()
     {
         $data=[
@@ -89,7 +90,7 @@ class CommentController extends Controller
         $commentId = $input['commentId'];
         $comment = Comment::find($commentId);
         $data=[
-            'comment' =>$comment,
+            'comment'=>$comment,
         ];
         return view('comment.form_create_commit',$data)->render();
     }

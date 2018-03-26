@@ -10,6 +10,7 @@
             </p>
         </div>
     </div>
-    @include('comment.comment_create')
+    @if(Auth::user())
+       @include('comment.comment_create')
+    @endif
 </div>
-

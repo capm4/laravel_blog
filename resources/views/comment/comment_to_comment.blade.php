@@ -1,7 +1,6 @@
 @if($comment->comments)
     @foreach($comment->comments as $comment)
-        <div style="margin-left: 50px">
-            <div class="comment mb-2 row">
+            <div class="comment mb-2 row" style="margin-left: 25px">
                 <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
                     {!! Html::image('/img/user/'.$comment->user->storeName.'/'.$comment->user->image,'',array('class'=>'mx-auto rounded-circle img-fluid','style'=>'width: 50px')) !!}
                 </div>
@@ -18,6 +17,5 @@
                 </div>
                 @include('comment.comment_to_comment')
             </div>
-        </div>
     @endforeach
 @endif

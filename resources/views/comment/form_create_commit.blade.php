@@ -11,8 +11,6 @@
         {!! Form::hidden('commentId', $comment->id) !!}
         {!! Form::textarea('text', null,['id'=>'editor','class'=>'form-control','placeholder'=>"Input Text",'size' => '30x3']) !!}
     </div>
-    <button class="btn btn-primary createCommitToCommit" data-create-commit-id="{{$comment->id}}">
-        @lang('messages.comment_title')
-    </button>
+     {!! Form::button(Lang::get('messages.comment_title'),['class'=>'btn btn-primary','type'=>'submit'])  !!}
     {!! Form::close() !!}
  </div>
