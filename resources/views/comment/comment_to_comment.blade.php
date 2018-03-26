@@ -13,10 +13,11 @@
                         </p>
                     </div>
                 </div>
-            @include('comment.comment_create')
+                 @include('comment.comment_create')
+                <div id="CommitToCommit-{{$comment->id}}">
+                </div>
+                @include('comment.comment_to_comment')
             </div>
         </div>
     @endforeach
 @endif
-<div id="CommitToCommit-{{$comment->id}}">
-</div>

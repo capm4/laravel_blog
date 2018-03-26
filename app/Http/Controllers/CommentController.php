@@ -42,16 +42,13 @@ class CommentController extends Controller
     public function createCommentToComment(Request $request)
     {
         if(Auth::user()){
-
             if ($request->isMethod('post')) {
                 $input = $request->except('_token');
                 $userId = Auth::user()->id;
                 $commentId = $input['commentId'];
                 $comment = CommentORM::createCommentToComment($request, $userId, $commentId);
-                $data = [
-                    'comment' => $comment,
-                ];
-                return view('comment.comment_to', $data)->render();
+
+                return redirect()->back();
             } else {
                 return redirect()->back();
             }
@@ -77,13 +74,23 @@ class CommentController extends Controller
         }
     }
 
-    public function formExecute(Request $request)
-    {   $input = $request->except('_token');
+//    public function formExecute(Request $request)
+//    {   $input = $request->except('_token');
+//        $commentId = $input['commentId'];
+//        $comment = Comment::find($commentId);
+//        $data=[
+//          'comment' =>$comment
+//        ];
+//        return view('comment.form_for_comment', $data)->render();
+//    }
+    public function createCommitForm(Request $request)
+    {
+        $input = $request->except('_token');
         $commentId = $input['commentId'];
         $comment = Comment::find($commentId);
         $data=[
-          'comment' =>$comment
+            'comment' =>$comment,
         ];
-        return view('comment.form_for_comment', $data)->render();
+        return view('comment.form_create_commit',$data)->render();
     }
 }

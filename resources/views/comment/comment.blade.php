@@ -10,5 +10,6 @@
             </p>
         </div>
     </div>
+    @include('comment.comment_create')
 </div>
-@include('comment.comment_create')
+

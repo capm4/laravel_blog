@@ -42,9 +42,6 @@
   @yield('footer')
 
 
-
-
-
   </body>
 
 </html>

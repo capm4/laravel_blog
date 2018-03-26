@@ -35,7 +35,8 @@ Route::post('/post/edit_comment_post',['uses'=>'CommentController@create','middl
 Route::post('/comment/edit_comment',['uses'=>'CommentController@createCommentToComment','middleware'=>'auth','as'=>'comment_comment_edit']);
 Route::match(['get','post','delete'],'/comment/delete/{id}',['uses'=>'CommentController@delete','middleware'=>'auth','as'=>'comment_delete']);
 Route::get('/comment/delete',['uses'=>'CommentController@deleteExecute','middleware'=>'auth','as'=>'comment']);
-Route::post('/comment/form',['uses'=>'CommentController@formExecute','middleware'=>'auth','as'=>'comment_form']);
+Route::post('/comment/form-create',['uses'=>'CommentController@createCommitForm','as'=>'create_form_comment']);
+//Route::post('/comment/form',['uses'=>'CommentController@formExecute','middleware'=>'auth','as'=>'comment_form']);
 Auth::routes();
 Route::get('setlocale/{locale}', ['middleware'=>'web','uses'=>'LangController@lang','as'=>'lang']);
 Route::group(['prefix'=>'profile','middleware'=>'auth'],function ()
